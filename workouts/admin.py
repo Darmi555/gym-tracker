@@ -1,7 +1,14 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 
-from workouts.models import Category, Exercise
+from workouts.models import Category, Exercise, GymUser
 
+
+@admin.register(GymUser)
+class GymUserAdmin(UserAdmin):
+    list_display = UserAdmin.list_display + ("years_of_experience", "description",)
+    fieldsets = UserAdmin.fieldsets + (("Additional information", {"fields": ("years_of_experience", "description")},),)
+    add_fieldsets = UserAdmin.add_fieldsets + (("Additional information", {"fields": ("years_of_experience", "description")},),)
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
