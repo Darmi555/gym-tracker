@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
 from workouts.models import Workout, Exercise, Category
@@ -41,6 +42,33 @@ class WorkoutDetailView(LoginRequiredMixin, generic.DetailView):
         return Workout.objects.filter(user=self.request.user)
 
 
+class WorkoutCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Workout
+    fields = ["title", "date", "description"]
+    success_url = reverse_lazy("workouts:workout-list")
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+
+class WorkoutUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Workout
+    fields = ["title", "date", "description"]
+    success_url = reverse_lazy("workouts:workout-list")
+
+    def get_queryset(self):
+        return Workout.objects.filter(user=self.request.user)
+
+
+class WorkoutDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Workout
+    success_url = reverse_lazy("workouts:workout-list")
+
+    def get_queryset(self):
+        return Workout.objects.filter(user=self.request.user)
+
+
 class ExerciseListView(LoginRequiredMixin, generic.ListView):
     model = Exercise
     paginate_by = 10
@@ -50,6 +78,7 @@ class ExerciseDetailView(LoginRequiredMixin, generic.DetailView):
     model = Exercise
 
 
+
 class CategoryListView(LoginRequiredMixin, generic.ListView):
     model = Category
     paginate_by = 10
@@ -57,3 +86,5 @@ class CategoryListView(LoginRequiredMixin, generic.ListView):
 
 class CategoryDetailView(LoginRequiredMixin, generic.DetailView):
     model = Category
+
+
