@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from workouts.models import Category, Exercise, GymUser
+from workouts.models import Category, Exercise, GymUser, WorkoutItem, Workout
 
 
 @admin.register(GymUser)
@@ -22,3 +22,14 @@ class ExerciseAdmin(admin.ModelAdmin):
     def get_category(self, obj):
         return ", ".join([cat.name for cat in obj.categories.all()])
     get_category.short_description = "Category"
+
+
+class WorkoutItemInline(admin.TabularInline):
+    model = WorkoutItem
+    extra = 1
+
+
+@admin.register(Workout)
+class WorkoutAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "user", "date", "description",)
+    inlines = [WorkoutItemInline]
