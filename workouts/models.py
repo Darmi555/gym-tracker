@@ -47,3 +47,12 @@ class Workout(models.Model):
     class Meta:
         verbose_name = "Workout"
         verbose_name_plural = "Workouts"
+
+
+class WorkoutItem(models.Model):
+    workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    set_count = models.PositiveIntegerField()
+    rep_count = models.PositiveIntegerField()
+    weight = models.FloatField()
+
