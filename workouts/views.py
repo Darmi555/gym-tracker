@@ -1,5 +1,8 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.views import generic
+
 from workouts.models import Workout, Exercise, Category
 
 
@@ -21,3 +24,12 @@ def index(request):
     }
 
     return render(request, "workouts/index.html", context=context)
+
+
+class WorkoutListView(LoginRequiredMixin, generic.ListView):
+    model = Workout
+    paginate_by = 10
+
+    def get_queryset(self):
+        return Workout.objects.filter(user=self.request.user)
+
