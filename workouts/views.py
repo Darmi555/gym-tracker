@@ -39,3 +39,21 @@ class WorkoutDetailView(LoginRequiredMixin, generic.DetailView):
 
     def get_queryset(self):
         return Workout.objects.filter(user=self.request.user)
+
+
+class ExerciseListView(LoginRequiredMixin, generic.ListView):
+    model = Exercise
+    paginate_by = 10
+
+
+class ExerciseDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Exercise
+
+
+class CategoryListView(LoginRequiredMixin, generic.ListView):
+    model = Category
+    paginate_by = 10
+
+
+class CategoryDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Category
