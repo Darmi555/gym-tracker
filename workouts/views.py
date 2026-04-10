@@ -83,6 +83,29 @@ class WorkoutItemCreateView(LoginRequiredMixin, generic.CreateView):
         return super().form_valid(form)
 
 
+class WorkoutItemUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = WorkoutItem
+    fields = ["exercise", "set_count", "rep_count", "weight"]
+
+    def get_success_url(self):
+        workout_id = self.object.workout_id
+        return reverse("workouts:workout-detail", kwargs={"pk": workout_id})
+
+    def get_queryset(self):
+        return WorkoutItem.objects.filter(workout__user=self.request.user)
+
+
+class WorkoutItemDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = WorkoutItem
+
+    def get_success_url(self):
+        workout_id = self.object.workout_id
+        return reverse("workouts:workout-detail", kwargs={"pk": workout_id})
+
+    def get_queryset(self):
+        return WorkoutItem.objects.filter(workout__user=self.request.user)
+
+
 class ExerciseListView(LoginRequiredMixin, generic.ListView):
     model = Exercise
     paginate_by = 10
