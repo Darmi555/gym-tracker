@@ -3,5 +3,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("workouts/", include("workouts.urls")),
+    path("", include("workouts.urls", namespace="workouts")),
+    path("accounts/", include("django.contrib.auth.urls")),
 ]
+
