@@ -1,10 +1,10 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views import generic
 
-from workouts.models import Workout, Exercise, Category
+from workouts.models import Workout, Exercise, Category, WorkoutItem
 
 
 def index(request):
@@ -67,6 +67,20 @@ class WorkoutDeleteView(LoginRequiredMixin, generic.DeleteView):
 
     def get_queryset(self):
         return Workout.objects.filter(user=self.request.user)
+
+
+class WorkoutItemCreateView(LoginRequiredMixin, generic.CreateView):
+    model = WorkoutItem
+    fields = ["exercise", "set_count", "rep_count", "weight"]
+
+    def get_success_url(self):
+        workout_id = self.object.workout_id
+        return reverse("workouts:workout-detail", kwargs={"pk": workout_id})
+
+    def form_valid(self, form):
+        workout = Workout.objects.get(pk=self.kwargs["workout_pk"])
+        form.instance.workout = workout
+        return super().form_valid(form)
 
 
 class ExerciseListView(LoginRequiredMixin, generic.ListView):
