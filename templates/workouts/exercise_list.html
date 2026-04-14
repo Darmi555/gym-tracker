@@ -1,0 +1,33 @@
+{% extends 'layouts/base-presentation.html' %}
+{% block content %}
+
+<div class="container mt-8">
+  <div class="row g-3">
+    {% for exercise in object_list %}
+    <div class="col-lg-4 mb-4">
+      <div class="info-horizontal bg-gray-100 border-radius-xl p-5 h-100">
+        <div class="icon">
+        </div>
+        <div class="description ps-5">
+          <h5>{{ exercise.name }}</h5>
+          <p>{{ exercise.description|truncatewords:10 }}</p>
+          <a href="{% url 'workouts:exercise-detail' pk=exercise.id %}" class="btn bg-gradient-primary w-auto me-1 mb-0">
+            Zobacz szczegóły
+            <i class="fas fa-arrow-right text-sm ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+      <div class="col-12 text-center mt-5">
+        <h4>Brak ćwiczeń w bazie.</h4>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+{% endblock %}
+
+

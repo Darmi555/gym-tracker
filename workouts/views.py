@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
@@ -7,6 +8,7 @@ from django.views import generic
 from workouts.models import Workout, Exercise, Category, WorkoutItem
 
 
+@login_required
 def index(request):
     num_gym_users = get_user_model().objects.count()
     num_workouts = Workout.objects.count()
