@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views import generic
@@ -31,10 +32,26 @@ def index(request):
 
 class WorkoutListView(LoginRequiredMixin, generic.ListView):
     model = Workout
-    paginate_by = 10
+    paginate_by = 15
 
     def get_queryset(self):
-        return Workout.objects.filter(user=self.request.user)
+        qs = Workout.objects.filter(user=self.request.user)
+        query = self.request.GET.get("q")
+        if query:
+            qs = qs.filter(
+                Q(title__icontains=query) | Q(description__icontains=query)
+            )
+        return qs.order_by('-date')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        page = context.get('page_obj')
+
+        if page:
+            context['custom_page_range'] = page.paginator.get_elided_page_range(
+                page.number, on_each_side=1, on_ends=1
+            )
+        return context
 
 
 class WorkoutDetailView(LoginRequiredMixin, generic.DetailView):
@@ -52,6 +69,7 @@ class WorkoutCreateView(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
 
 
 class WorkoutUpdateView(LoginRequiredMixin, generic.UpdateView):
