@@ -29,7 +29,7 @@ class Category(models.Model):
 class Exercise(models.Model):
     name = models.CharField(max_length=256)
     description = models.TextField(blank=True, null=True)
-    categories = models.ManyToManyField(Category)
+    categories = models.ManyToManyField(Category, related_name="exercises")
 
     def __str__(self):
         return self.name
