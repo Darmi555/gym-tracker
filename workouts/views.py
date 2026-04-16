@@ -1,12 +1,13 @@
+from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.views import generic
 
-from workouts.forms import WorkoutForm
+from workouts.forms import WorkoutForm, WorkoutItemForm
 from workouts.models import Workout, Exercise, Category, WorkoutItem
 
 
@@ -61,6 +62,11 @@ class WorkoutDetailView(LoginRequiredMixin, generic.DetailView):
     def get_queryset(self):
         return Workout.objects.filter(user=self.request.user)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form"] = WorkoutItemForm()
+        return context
+
 
 class WorkoutCreateView(LoginRequiredMixin, generic.CreateView):
     model = Workout
@@ -93,16 +99,16 @@ class WorkoutDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class WorkoutItemCreateView(LoginRequiredMixin, generic.CreateView):
     model = WorkoutItem
-    fields = ["exercise", "set_count", "rep_count", "weight"]
-
-    def get_success_url(self):
-        workout_id = self.object.workout_id
-        return reverse("workouts:workout-detail", kwargs={"pk": workout_id})
+    form_class = WorkoutItemForm
 
     def form_valid(self, form):
-        workout = Workout.objects.get(pk=self.kwargs["workout_pk"])
+        workout_id = self.kwargs.get("workout_pk")
+        workout = Workout.objects.get(pk=workout_id)
         form.instance.workout = workout
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse("workouts:workout-detail", kwargs={"pk": self.object.workout_id})
 
 
 class WorkoutItemUpdateView(LoginRequiredMixin, generic.UpdateView):
