@@ -82,11 +82,13 @@ class WorkoutCreateView(LoginRequiredMixin, generic.CreateView):
 
 class WorkoutUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Workout
-    fields = ["title", "date", "description"]
-    success_url = reverse_lazy("workouts:workout-list")
+    form_class = WorkoutForm
 
     def get_queryset(self):
         return Workout.objects.filter(user=self.request.user)
+
+    def get_success_url(self):
+        return reverse("workouts:workout-detail", kwargs={"pk": self.object.pk})
 
 
 class WorkoutDeleteView(LoginRequiredMixin, generic.DeleteView):
