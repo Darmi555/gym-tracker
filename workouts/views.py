@@ -1,9 +1,8 @@
-from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views import generic
 
@@ -136,14 +135,46 @@ class WorkoutItemDeleteView(LoginRequiredMixin, generic.DeleteView):
         return WorkoutItem.objects.filter(workout__user=self.request.user)
 
 
+from django.db.models import Q
+from workouts.models import Exercise, Category  # Pamiętaj o imporcie Category!
+
+
 class ExerciseListView(LoginRequiredMixin, generic.ListView):
     model = Exercise
-    paginate_by = 10
+    paginate_by = 12
+
+    def get_queryset(self):
+        qs = Exercise.objects.all()
+        query = self.request.GET.get("q")
+
+        if query:
+            qs = qs.filter(
+                Q(name__icontains=query) | Q(description__icontains=query)
+            )
+        category_id = self.request.GET.get("category")
+
+        if category_id:
+            qs = qs.filter(categories__id=category_id)
+        return qs.order_by('name').distinct()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        page = context.get('page_obj')
+
+        if page:
+            context['custom_page_range'] = page.paginator.get_elided_page_range(
+                page.number, on_each_side=1, on_ends=1
+            )
+
+        context['categories'] = Category.objects.all().order_by('name')
+        selected_category = self.request.GET.get('category')
+        context['selected_category'] = int(
+            selected_category) if selected_category and selected_category.isdigit() else None
+        return context
 
 
 class ExerciseDetailView(LoginRequiredMixin, generic.DetailView):
     model = Exercise
-
 
 
 class CategoryListView(LoginRequiredMixin, generic.ListView):
@@ -153,5 +184,3 @@ class CategoryListView(LoginRequiredMixin, generic.ListView):
 
 class CategoryDetailView(LoginRequiredMixin, generic.DetailView):
     model = Category
-
-
