@@ -50,9 +50,8 @@ class Workout(models.Model):
 
 
 class WorkoutItem(models.Model):
-    workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
+    workout = models.ForeignKey(Workout, on_delete=models.CASCADE, related_name="items")
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     set_count = models.PositiveIntegerField()
     rep_count = models.PositiveIntegerField()
     weight = models.FloatField()
-

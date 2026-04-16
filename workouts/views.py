@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views import generic
 
+from workouts.forms import WorkoutForm
 from workouts.models import Workout, Exercise, Category, WorkoutItem
 
 
@@ -63,13 +64,14 @@ class WorkoutDetailView(LoginRequiredMixin, generic.DetailView):
 
 class WorkoutCreateView(LoginRequiredMixin, generic.CreateView):
     model = Workout
-    fields = ["title", "date", "description"]
-    success_url = reverse_lazy("workouts:workout-list")
+    form_class = WorkoutForm
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
+    def get_success_url(self):
+        return reverse('workouts:workout-detail', kwargs={'pk': self.object.pk})
 
 
 class WorkoutUpdateView(LoginRequiredMixin, generic.UpdateView):
