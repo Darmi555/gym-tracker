@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "workouts",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,7 @@ STATICFILES_DIRS = [
 ASSETS_ROOT = "/static/assets"
 
 AUTH_USER_MODEL = "workouts.GymUser"
+
+LOGIN_REDIRECT_URL = "workouts:exercise-list"
+
+LOGOUT_REDIRECT_URL = "login"
