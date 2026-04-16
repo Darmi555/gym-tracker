@@ -127,6 +127,6 @@ ASSETS_ROOT = "/static/assets"
 
 AUTH_USER_MODEL = "workouts.GymUser"
 
-LOGIN_REDIRECT_URL = "workouts:exercise-list"
+LOGIN_REDIRECT_URL = "workouts:index"
 
 LOGOUT_REDIRECT_URL = "login"

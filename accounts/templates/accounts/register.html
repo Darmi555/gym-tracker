@@ -1,6 +1,6 @@
 {% extends 'layouts/base-fullscreen.html' %}
 
-{% block title %} Sign In {% endblock title %}
+{% block title %} Sign Up {% endblock title %}
 
 {% block body_class %} sign-in-illustration {% endblock body_class %}
 
@@ -14,40 +14,43 @@
           <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
             <div class="card card-plain">
               <div class="card-header pb-0 text-left">
-                <h4 class="font-weight-bolder">Sign In</h4>
-                <p class="mb-0">
-                  {% if form.errors %}
-                      <span class="text-danger text-sm font-weight-bold">Invalid username or password. Please try again.</span>
-                  {% else %}
-                      Enter your username and password to sign in
-                  {% endif %}
-                </p>
+                <h4 class="font-weight-bolder">Sign Up</h4>
+                <p class="mb-0">Enter your details to create an account</p>
               </div>
               <div class="card-body">
-
                 <form method="post" action="" role="form">
+
                   {% csrf_token %}
 
-                  <div class="mb-3">
-                    {{ form.username }}
-                  </div>
-                  <div class="mb-3">
-                    {{ form.password }}
-                  </div>
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                  {% for field in form %}
+                    <div class="mb-3">
+                      <label class="form-label text-sm font-weight-bold">{{ field.label }}</label>
+                      {{ field }}
+
+                      {% if field.errors %}
+                        <div class="text-danger text-xs mt-1">
+                          {{ field.errors.0 }}
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% endfor %}
+
+                  <div class="form-check form-switch mt-3">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" required>
+                    <label class="form-check-label" for="rememberMe">
+                      I agree to the <a href="#" class="text-dark font-weight-bolder">Terms and Conditions</a>
+                    </label>
                   </div>
                   <div class="text-center">
-                    <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign In</button>
+                    <button type="submit" name="register"
+                            class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Register</button>
                   </div>
                 </form>
-
               </div>
               <div class="card-footer text-center pt-0 px-lg-2 px-1">
                 <p class="mb-4 text-sm mx-auto">
-                  Don't have an account?
-                  <a href="{% url 'register' %}" class="text-primary text-gradient font-weight-bold">Sign Up</a>
+                  Already have an account?
+                  <a href="{% url 'login' %}" class="text-primary text-gradient font-weight-bold">Sign In</a>
                 </p>
               </div>
             </div>
@@ -60,14 +63,13 @@
                 <img class="max-width-500 w-100 position-relative z-index-2" src="{{ ASSETS_ROOT }}/img/illustrations/chat.png">
               </div>
               <h4 class="mt-5 text-white font-weight-bolder">
-                Workout Tracker
+                Join Workout Tracker
               </h4>
               <p class="text-white">
-                Track your progress, build muscle, and achieve your fitness goals with our platform.
+                Start logging your exercises, tracking your progress, and smashing your fitness goals today.
               </p>
             </div>
           </div>
-
         </div>
       </div>
     </div>
