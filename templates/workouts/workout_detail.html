@@ -49,8 +49,14 @@
                     <p class="text-xs font-weight-bold mb-0">{{ item.weight }} kg</p>
                   </td>
                   <td class="align-middle text-center">
-                    <a href="{% url 'workouts:workout-item-update' item.pk %}" class="text-secondary font-weight-bold text-xs">
+                    <a href="{% url 'workouts:workout-item-update' item.pk %}" class="text-secondary font-weight-bold text-xs me-2">
                       Edit
+                    </a>
+
+                    <span class="text-secondary text-xs opacity-5">|</span>
+
+                    <a href="{% url 'workouts:workout-item-delete' item.pk %}" class="text-danger font-weight-bold text-xs ms-2">
+                      Delete
                     </a>
                   </td>
                 </tr>
