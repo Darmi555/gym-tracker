@@ -176,6 +176,15 @@ class ExerciseListView(LoginRequiredMixin, generic.ListView):
 class ExerciseDetailView(LoginRequiredMixin, generic.DetailView):
     model = Exercise
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        history = WorkoutItem.objects.filter(
+            exercise=self.object,
+            workout__user=self.request.user
+        ).select_related('workout').order_by('-workout__date')
+        context['history'] = history[:15]
+        return context
+
 
 class CategoryListView(LoginRequiredMixin, generic.ListView):
     model = Category

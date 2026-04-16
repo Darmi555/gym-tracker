@@ -1,0 +1,88 @@
+{% extends 'layouts/base-presentation.html' %}
+{% block content %}
+
+<div class="container mt-8">
+  <div class="row justify-content-center">
+    
+    <div class="col-lg-8 col-md-10">
+      <div class="card shadow-lg mb-4 border-0">
+        <div class="card-header bg-white pb-0 pt-4 px-4">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h3 class="font-weight-bolder text-dark mb-0">{{ object.name }}</h3>
+            <a href="{% url 'workouts:exercise-list' %}" class="btn btn-outline-secondary btn-sm mb-0">
+              Powrót do listy
+            </a>
+          </div>
+          
+          <div class="mb-3">
+            {% for cat in object.categories.all %}
+              <span class="badge bg-light text-secondary border badge-sm fw-normal me-1">{{ cat.name }}</span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="card-body px-4 pb-4">
+          <h6 class="text-uppercase text-body text-xs font-weight-bolder opacity-7 mb-2">Opis ćwiczenia</h6>
+          <p class="text-dark text-sm mb-4">
+            {% if object.description %}
+              {{ object.description|linebreaksbr }}
+            {% else %}
+              <span class="text-muted">Brak opisu dla tego ćwiczenia.</span>
+            {% endif %}
+          </p>
+          
+          <hr class="horizontal dark my-4">
+
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="text-uppercase text-body text-xs font-weight-bolder opacity-7 mb-0">Twoja historia w tym ćwiczeniu</h6>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Data treningu</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trening</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Serie x Powt.</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ciężar</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in history %}
+                <tr>
+                  <td>
+                    <p class="text-sm font-weight-bold mb-0 text-dark">{{ item.workout.date|date:"d.m.Y" }}</p>
+                  </td>
+                  <td class="align-middle text-center">
+                    <a href="{% url 'workouts:workout-detail' item.workout.pk %}" class="text-sm text-primary font-weight-bold">
+                      {{ item.workout.title|truncatechars:20 }}
+                    </a>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="badge badge-sm bg-gradient-info">
+                      {{ item.set_count }} x {{ item.rep_count }}
+                    </span>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <p class="text-xs font-weight-bold mb-0 text-dark">{{ item.weight }} kg</p>
+                  </td>
+                </tr>
+                {% empty %}
+                <tr>
+                  <td colspan="4" class="text-center py-4">
+                    <span class="text-secondary text-sm">Jeszcze nie używałeś tego ćwiczenia w swoich treningach.</span>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
