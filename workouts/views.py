@@ -188,8 +188,3 @@ class ExerciseDetailView(LoginRequiredMixin, generic.DetailView):
 
 class CategoryListView(LoginRequiredMixin, generic.ListView):
     model = Category
-    paginate_by = 10
-
-
-class CategoryDetailView(LoginRequiredMixin, generic.DetailView):
-    model = Category

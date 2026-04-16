@@ -2,7 +2,7 @@ from django.urls import path
 
 from workouts.models import Category
 from workouts.views import index, WorkoutListView, WorkoutDetailView, ExerciseListView, ExerciseDetailView, \
-    CategoryListView, CategoryDetailView, WorkoutCreateView, WorkoutUpdateView, WorkoutDeleteView, \
+    CategoryListView, WorkoutCreateView, WorkoutUpdateView, WorkoutDeleteView, \
     WorkoutItemCreateView, WorkoutItemUpdateView, WorkoutItemDeleteView
 
 urlpatterns = [
@@ -15,7 +15,6 @@ urlpatterns = [
     path("exercises/", ExerciseListView.as_view(), name="exercise-list"),
     path("exercise/<int:pk>/", ExerciseDetailView.as_view(), name="exercise-detail"),
     path("categories/", CategoryListView.as_view(), name="category-list"),
-    path("categories/<int:pk>/", CategoryDetailView.as_view(), name="category-detail"),
     path("workouts/<int:workout_pk>/items/create/", WorkoutItemCreateView.as_view(), name="workout-item-create"),
     path("items/<int:pk>/update/", WorkoutItemUpdateView.as_view(), name="workout-item-update"),
     path("items/<int:pk>/delete/", WorkoutItemDeleteView.as_view(), name="workout-item-delete"),

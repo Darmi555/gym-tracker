@@ -2,34 +2,53 @@
 {% block content %}
 
 <div class="container mt-8">
+
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-header pb-3 bg-white d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Categories & Muscle Groups</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="row g-3">
     {% for category in object_list %}
-    <div class="col-lg-4 mb-4">
-      <div class="info-horizontal bg-gray-100 border-radius-xl p-5 h-100">
-        <div class="icon">
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card bg-gray-100 border-radius-xl p-4 h-100 shadow-none border d-flex flex-column">
+
+        <div class="mb-3">
+          <h5 class="text-dark font-weight-bold mb-1">{{ category.name }}</h5>
+          <span class="text-xs text-muted font-weight-bolder text-uppercase">Top Exercises</span>
         </div>
-        <div class="description">
-          <h3>{{ category.name }}</h3>
-          <h4>Przykladowe cwiczenia:</h4>
+
+        <ul class="list-unstyled mb-4 flex-grow-1">
           {% for exercise in category.exercises.all|slice:":5" %}
-            <a href="{% url 'workouts:exercise-detail' pk=exercise.id %}">
-              <p>{{ exercise.name }}</p>
-            </a>
+            <li class="mb-2">
+              <a href="{% url 'workouts:exercise-detail' pk=exercise.id %}" class="text-sm text-secondary font-weight-bold text-decoration-none">
+                <i class="fas fa-angle-right text-xs me-2 opacity-6"></i>{{ exercise.name }}
+              </a>
+            </li>
+          {% empty %}
+            <li class="text-xs text-muted">No exercises assigned yet.</li>
           {% endfor %}
+        </ul>
+
+        <div class="mt-auto">
+          <a href="{% url 'workouts:exercise-list' %}?category={{ category.id }}" class="btn btn-sm bg-gradient-primary w-100 mb-0">
+            View all {{category.name}} exercises
+          </a>
         </div>
-        <a href="{% url 'workouts:category-detail' pk=category.id %}" class="btn bg-gradient-primary w-auto me-1 mb-0 ">
-          <i class="text-sm ">All {{category.name}} exercises</i>
-        </a>
+
       </div>
     </div>
     {% empty %}
       <div class="col-12 text-center mt-5">
-        <h4>Brak ćwiczeń w bazie.</h4>
+        <h4 class="text-muted">No categories found.</h4>
       </div>
     {% endfor %}
   </div>
 </div>
 
 {% endblock %}
-
-
