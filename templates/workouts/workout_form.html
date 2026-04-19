@@ -29,6 +29,14 @@
             </div>
 
             <div class="mb-3">
+              <label class="form-label font-weight-bolder text-xs">Date and Time</label>
+              {{ form.date }}
+              {% if form.date.errors %}
+                <p class="text-danger text-xxs mt-1">{{ form.date.errors.0 }}</p>
+              {% endif %}
+            </div>
+
+            <div class="mb-3">
               <label class="form-label font-weight-bolder text-xs">Description / Notes</label>
               {{ form.description }}
               {% if form.description.errors %}

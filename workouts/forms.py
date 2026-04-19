@@ -5,7 +5,7 @@ from .models import Workout, WorkoutItem
 class WorkoutForm(forms.ModelForm):
     class Meta:
         model = Workout
-        fields = ["title", "description"]
+        fields = ["title", "date", "description"]
         widgets = {
             "title": forms.TextInput(
                 attrs={
@@ -18,6 +18,13 @@ class WorkoutForm(forms.ModelForm):
                     "class": "form-control",
                     "rows": 4,
                     "placeholder": "Optional notes, how are you feeling today?",
+                }
+            ),
+            "date": forms.DateTimeInput(
+                format='%Y-%m-%dT%H:%M',
+                attrs={
+                    "class": "form-control",
+                    "type": "datetime-local",
                 }
             ),
         }
