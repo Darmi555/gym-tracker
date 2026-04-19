@@ -1,0 +1,1972 @@
+[
+{
+    "model": "workouts.gymuser",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$1p6Zg94VCYhreP9Kf5aNqp$+9m2E6ohEv+h1UYsdtKMzjk+QuZjR81DQDTj6vC3a+g=",
+        "last_login": "2026-04-19T15:10:16.656Z",
+        "is_superuser": true,
+        "username": "adminuser",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@admin.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-04-19T15:10:05.652Z",
+        "years_of_experience": null,
+        "description": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "workouts.gymuser",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$KvHTkv0ZPWNj965zKwBXru$I/b0zjm1H28BcsvnemUfxPwtLg+LXc0ekcRG1pUMejQ=",
+        "last_login": "2026-04-19T19:43:39.159Z",
+        "is_superuser": false,
+        "username": "testuser",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-04-19T18:08:49.696Z",
+        "years_of_experience": null,
+        "description": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "workouts.category",
+    "pk": 1,
+    "fields": {
+        "name": "Chest"
+    }
+},
+{
+    "model": "workouts.category",
+    "pk": 2,
+    "fields": {
+        "name": "Back"
+    }
+},
+{
+    "model": "workouts.category",
+    "pk": 3,
+    "fields": {
+        "name": "Shoulders"
+    }
+},
+{
+    "model": "workouts.category",
+    "pk": 4,
+    "fields": {
+        "name": "Biceps"
+    }
+},
+{
+    "model": "workouts.category",
+    "pk": 5,
+    "fields": {
+        "name": "Triceps"
+    }
+},
+{
+    "model": "workouts.category",
+    "pk": 6,
+    "fields": {
+        "name": "Quads"
+    }
+},
+{
+    "model": "workouts.category",
+    "pk": 7,
+    "fields": {
+        "name": "Hamstrings"
+    }
+},
+{
+    "model": "workouts.category",
+    "pk": 8,
+    "fields": {
+        "name": "Calves"
+    }
+},
+{
+    "model": "workouts.category",
+    "pk": 9,
+    "fields": {
+        "name": "Abs"
+    }
+},
+{
+    "model": "workouts.category",
+    "pk": 10,
+    "fields": {
+        "name": "Cardio"
+    }
+},
+{
+    "model": "workouts.category",
+    "pk": 11,
+    "fields": {
+        "name": "Full Body"
+    }
+},
+{
+    "model": "workouts.category",
+    "pk": 12,
+    "fields": {
+        "name": "Lower Back"
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 1,
+    "fields": {
+        "name": "Barbell Bench Press",
+        "description": "A classic compound exercise that primarily targets the chest, while also engaging the triceps and shoulders.",
+        "categories": [
+            1,
+            3,
+            5
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 2,
+    "fields": {
+        "name": "Incline Dumbbell Press",
+        "description": "An upper body strength exercise focused on the upper pectoral muscles.",
+        "categories": [
+            1,
+            3
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 3,
+    "fields": {
+        "name": "Push-ups",
+        "description": "A fundamental bodyweight exercise that builds chest, shoulder, and tricep strength.",
+        "categories": [
+            1,
+            5,
+            9
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 4,
+    "fields": {
+        "name": "Pull-ups",
+        "description": "A challenging upper body compound pulling exercise that heavily targets the latissimus dorsi and biceps.",
+        "categories": [
+            2,
+            4
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 5,
+    "fields": {
+        "name": "Barbell Deadlift",
+        "description": "A powerful full-body movement that builds immense strength in the posterior chain, including the back, glutes, and hamstrings.",
+        "categories": [
+            2,
+            7,
+            11,
+            12
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 6,
+    "fields": {
+        "name": "Lat Pulldown",
+        "description": "A machine-based exercise designed to develop and widen the latissimus dorsi muscle.",
+        "categories": [
+            2,
+            4
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 7,
+    "fields": {
+        "name": "Barbell Row",
+        "description": "A staple compound movement for building a thick, strong back.",
+        "categories": [
+            2,
+            4,
+            12
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 8,
+    "fields": {
+        "name": "Overhead Press",
+        "description": "A primary shoulder builder that also requires core stabilization and tricep strength.",
+        "categories": [
+            3,
+            5
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 9,
+    "fields": {
+        "name": "Lateral Raises",
+        "description": "An isolation exercise perfect for targeting the medial deltoid for wider shoulders.",
+        "categories": [
+            3
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 10,
+    "fields": {
+        "name": "Face Pulls",
+        "description": "Excellent for rear deltoid development and overall shoulder health and posture.",
+        "categories": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 11,
+    "fields": {
+        "name": "Barbell Curl",
+        "description": "The standard isolation exercise for building bicep mass and strength.",
+        "categories": [
+            4
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 12,
+    "fields": {
+        "name": "Hammer Curls",
+        "description": "A bicep variation that targets the brachialis and brachioradialis, building thicker arms and grip strength.",
+        "categories": [
+            4
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 13,
+    "fields": {
+        "name": "Tricep Rope Pushdown",
+        "description": "An isolation movement using a cable machine to effectively target the triceps.",
+        "categories": [
+            5
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 14,
+    "fields": {
+        "name": "Skull Crushers",
+        "description": "A lying tricep extension that focuses heavily on the long head of the tricep.",
+        "categories": [
+            5
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 15,
+    "fields": {
+        "name": "Barbell Squat",
+        "description": "The king of leg exercises, essential for building quad, glute, and overall lower body power.",
+        "categories": [
+            6,
+            7,
+            11
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 16,
+    "fields": {
+        "name": "Leg Press",
+        "description": "A machine-based compound exercise that allows for heavy lower body training without stressing the lower back.",
+        "categories": [
+            6,
+            8
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 17,
+    "fields": {
+        "name": "Romanian Deadlift",
+        "description": "A hip-hinge movement that heavily isolates and strengthens the hamstrings and glutes.",
+        "categories": [
+            7,
+            11,
+            12
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 18,
+    "fields": {
+        "name": "Standing Calf Raise",
+        "description": "A basic but highly effective isolation exercise for the gastrocnemius muscle.",
+        "categories": [
+            8
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 19,
+    "fields": {
+        "name": "Plank",
+        "description": "A static core exercise that builds endurance and stability in the abdominals and lower back.",
+        "categories": [
+            9,
+            11
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 20,
+    "fields": {
+        "name": "Hanging Leg Raises",
+        "description": "An advanced core movement that heavily targets the lower abdominals and hip flexors.",
+        "categories": [
+            9
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 21,
+    "fields": {
+        "name": "Treadmill Running",
+        "description": "A popular cardiovascular exercise for improving endurance and burning calories.",
+        "categories": [
+            10
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 22,
+    "fields": {
+        "name": "Rowing Machine",
+        "description": "A full-body cardio workout that also engages the back, legs, and arms.",
+        "categories": [
+            2,
+            10,
+            11
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 23,
+    "fields": {
+        "name": "Cable Crossover",
+        "description": "A cable machine isolation exercise that provides constant tension on the chest muscles.",
+        "categories": [
+            1
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 24,
+    "fields": {
+        "name": "Dumbbell Flyes",
+        "description": "An isolation exercise designed to stretch and squeeze the pectoral muscles.",
+        "categories": [
+            1
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 25,
+    "fields": {
+        "name": "Decline Bench Press",
+        "description": "A bench press variation that targets the lower portion of the chest.",
+        "categories": [
+            1,
+            5
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 26,
+    "fields": {
+        "name": "Front Squat",
+        "description": "A squat variation with the barbell resting on the front delts, emphasizing the quadriceps and upper back.",
+        "categories": [
+            6,
+            11
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 27,
+    "fields": {
+        "name": "Leg Extension",
+        "description": "A machine isolation exercise specifically for targeting the quadriceps.",
+        "categories": [
+            6
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 28,
+    "fields": {
+        "name": "Walking Lunges",
+        "description": "A dynamic, unilateral leg exercise that improves balance, coordination, and overall leg strength.",
+        "categories": [
+            6,
+            7,
+            8
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 29,
+    "fields": {
+        "name": "Seated Leg Curl",
+        "description": "A machine isolation movement for the hamstrings performed in a seated position.",
+        "categories": [
+            7
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 30,
+    "fields": {
+        "name": "Lying Leg Curl",
+        "description": "A machine isolation exercise that targets the hamstrings from a prone position.",
+        "categories": [
+            7
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 31,
+    "fields": {
+        "name": "Good Mornings",
+        "description": "A barbell hip-hinge exercise that builds strength in the lower back, glutes, and hamstrings.",
+        "categories": [
+            7,
+            12
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 32,
+    "fields": {
+        "name": "Seated Calf Raise",
+        "description": "A calf isolation exercise that specifically targets the soleus muscle.",
+        "categories": [
+            8
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 33,
+    "fields": {
+        "name": "Donkey Calf Raise",
+        "description": "A bent-over calf raise variation that provides a deep stretch in the calf muscles.",
+        "categories": [
+            8
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 34,
+    "fields": {
+        "name": "Jump Rope",
+        "description": "A highly effective cardiovascular exercise that improves agility, coordination, and footwork.",
+        "categories": [
+            8,
+            10,
+            11
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 35,
+    "fields": {
+        "name": "Crunches",
+        "description": "A classic bodyweight exercise for isolating the upper abdominal muscles.",
+        "categories": [
+            9
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 36,
+    "fields": {
+        "name": "Ab Wheel Rollout",
+        "description": "An intense core exercise that challenges the abdominals, obliques, and lower back stability.",
+        "categories": [
+            9,
+            11
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 37,
+    "fields": {
+        "name": "Russian Twist",
+        "description": "A rotational core exercise that targets the obliques and improves core stability.",
+        "categories": [
+            9
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 38,
+    "fields": {
+        "name": "Stationary Bike",
+        "description": "A low-impact cardiovascular exercise ideal for building leg endurance and burning calories.",
+        "categories": [
+            10
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 39,
+    "fields": {
+        "name": "Stairmaster",
+        "description": "A demanding cardio machine that mimics climbing stairs, heavily engaging the quads and glutes.",
+        "categories": [
+            6,
+            8,
+            10
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 40,
+    "fields": {
+        "name": "Hyperextension",
+        "description": "A bodyweight or weighted exercise that strengthens the lower back and erector spinae.",
+        "categories": [
+            7,
+            12
+        ]
+    }
+},
+{
+    "model": "workouts.exercise",
+    "pk": 41,
+    "fields": {
+        "name": "Superman",
+        "description": "A floor-based exercise that targets the lower back, glutes, and shoulders for better posture.",
+        "categories": [
+            9,
+            12
+        ]
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 1,
+    "fields": {
+        "user": 3,
+        "title": "Strength & Conditioning",
+        "description": "Completely destroyed. Barely walked down the stairs.",
+        "date": "2026-02-19T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 2,
+    "fields": {
+        "user": 3,
+        "title": "Afternoon Grind",
+        "description": "Missed a few reps on the last set, need to eat more before training.",
+        "date": "2026-02-21T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 3,
+    "fields": {
+        "user": 3,
+        "title": "Strength Circuit",
+        "description": "Hit a new personal record! Amazing session.",
+        "date": "2026-02-22T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 4,
+    "fields": {
+        "user": 3,
+        "title": "Sweat Session",
+        "description": "Energy was a bit low, but got it done.",
+        "date": "2026-02-25T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 5,
+    "fields": {
+        "user": 3,
+        "title": "Heavy Lifting Today",
+        "description": "Completely destroyed. Barely walked down the stairs.",
+        "date": "2026-02-28T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 6,
+    "fields": {
+        "user": 3,
+        "title": "Quick Workout",
+        "description": "Felt great today, pushed some heavy weights.",
+        "date": "2026-03-02T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 7,
+    "fields": {
+        "user": 3,
+        "title": "Late Night Session",
+        "description": "Completely destroyed. Barely walked down the stairs.",
+        "date": "2026-03-03T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 8,
+    "fields": {
+        "user": 3,
+        "title": "Afternoon Grind",
+        "description": "Just a quick session to get the blood flowing.",
+        "date": "2026-03-06T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 9,
+    "fields": {
+        "user": 3,
+        "title": "Midday Power",
+        "description": "Completely destroyed. Barely walked down the stairs.",
+        "date": "2026-03-07T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 10,
+    "fields": {
+        "user": 3,
+        "title": "Sweat Session",
+        "description": "Completely destroyed. Barely walked down the stairs.",
+        "date": "2026-03-08T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 11,
+    "fields": {
+        "user": 3,
+        "title": "Morning Session",
+        "description": "Hit a new personal record! Amazing session.",
+        "date": "2026-03-11T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 12,
+    "fields": {
+        "user": 3,
+        "title": "Sweat Session",
+        "description": "Just a quick session to get the blood flowing.",
+        "date": "2026-03-13T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 13,
+    "fields": {
+        "user": 3,
+        "title": "Sweat Session",
+        "description": "Hit a new personal record! Amazing session.",
+        "date": "2026-03-15T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 14,
+    "fields": {
+        "user": 3,
+        "title": "Sweat Session",
+        "description": "Missed a few reps on the last set, need to eat more before training.",
+        "date": "2026-03-18T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 15,
+    "fields": {
+        "user": 3,
+        "title": "Strength Circuit",
+        "description": "Just a quick session to get the blood flowing.",
+        "date": "2026-03-21T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 16,
+    "fields": {
+        "user": 3,
+        "title": "Quick Workout",
+        "description": "Just a quick session to get the blood flowing.",
+        "date": "2026-03-24T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 17,
+    "fields": {
+        "user": 3,
+        "title": "Morning Session",
+        "description": "Missed a few reps on the last set, need to eat more before training.",
+        "date": "2026-03-26T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 18,
+    "fields": {
+        "user": 3,
+        "title": "Sweat Session",
+        "description": "Energy was a bit low, but got it done.",
+        "date": "2026-03-27T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 19,
+    "fields": {
+        "user": 3,
+        "title": "Strength & Conditioning",
+        "description": "Felt great today, pushed some heavy weights.",
+        "date": "2026-03-30T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 20,
+    "fields": {
+        "user": 3,
+        "title": "Late Night Session",
+        "description": "Energy was a bit low, but got it done.",
+        "date": "2026-03-31T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 21,
+    "fields": {
+        "user": 3,
+        "title": "Heavy Lifting Today",
+        "description": "Felt great today, pushed some heavy weights.",
+        "date": "2026-04-02T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 22,
+    "fields": {
+        "user": 3,
+        "title": "Afternoon Grind",
+        "description": "",
+        "date": "2026-04-04T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 23,
+    "fields": {
+        "user": 3,
+        "title": "Sweat Session",
+        "description": "",
+        "date": "2026-04-06T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 24,
+    "fields": {
+        "user": 3,
+        "title": "Afternoon Grind",
+        "description": "Energy was a bit low, but got it done.",
+        "date": "2026-04-07T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workout",
+    "pk": 25,
+    "fields": {
+        "user": 3,
+        "title": "Morning Session",
+        "description": "Missed a few reps on the last set, need to eat more before training.",
+        "date": "2026-04-10T18:15:56.544Z"
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 1,
+    "fields": {
+        "workout": 1,
+        "exercise": 30,
+        "set_count": 5,
+        "rep_count": 6,
+        "weight": 89.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 2,
+    "fields": {
+        "workout": 1,
+        "exercise": 34,
+        "set_count": 3,
+        "rep_count": 5,
+        "weight": 28.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 3,
+    "fields": {
+        "workout": 1,
+        "exercise": 5,
+        "set_count": 4,
+        "rep_count": 13,
+        "weight": 79.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 4,
+    "fields": {
+        "workout": 1,
+        "exercise": 2,
+        "set_count": 5,
+        "rep_count": 8,
+        "weight": 28.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 5,
+    "fields": {
+        "workout": 1,
+        "exercise": 26,
+        "set_count": 3,
+        "rep_count": 8,
+        "weight": 73.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 6,
+    "fields": {
+        "workout": 2,
+        "exercise": 24,
+        "set_count": 4,
+        "rep_count": 11,
+        "weight": 76.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 7,
+    "fields": {
+        "workout": 2,
+        "exercise": 32,
+        "set_count": 4,
+        "rep_count": 13,
+        "weight": 71.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 8,
+    "fields": {
+        "workout": 2,
+        "exercise": 27,
+        "set_count": 4,
+        "rep_count": 6,
+        "weight": 37.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 9,
+    "fields": {
+        "workout": 2,
+        "exercise": 15,
+        "set_count": 3,
+        "rep_count": 11,
+        "weight": 38.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 10,
+    "fields": {
+        "workout": 2,
+        "exercise": 11,
+        "set_count": 5,
+        "rep_count": 9,
+        "weight": 94.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 11,
+    "fields": {
+        "workout": 3,
+        "exercise": 10,
+        "set_count": 4,
+        "rep_count": 12,
+        "weight": 57.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 12,
+    "fields": {
+        "workout": 3,
+        "exercise": 21,
+        "set_count": 3,
+        "rep_count": 8,
+        "weight": 43.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 13,
+    "fields": {
+        "workout": 3,
+        "exercise": 30,
+        "set_count": 3,
+        "rep_count": 8,
+        "weight": 17.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 14,
+    "fields": {
+        "workout": 3,
+        "exercise": 27,
+        "set_count": 5,
+        "rep_count": 12,
+        "weight": 77.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 15,
+    "fields": {
+        "workout": 3,
+        "exercise": 5,
+        "set_count": 5,
+        "rep_count": 9,
+        "weight": 74.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 16,
+    "fields": {
+        "workout": 4,
+        "exercise": 8,
+        "set_count": 3,
+        "rep_count": 11,
+        "weight": 89.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 17,
+    "fields": {
+        "workout": 4,
+        "exercise": 3,
+        "set_count": 4,
+        "rep_count": 12,
+        "weight": 89.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 18,
+    "fields": {
+        "workout": 4,
+        "exercise": 21,
+        "set_count": 3,
+        "rep_count": 7,
+        "weight": 64.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 19,
+    "fields": {
+        "workout": 5,
+        "exercise": 32,
+        "set_count": 3,
+        "rep_count": 13,
+        "weight": 28.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 20,
+    "fields": {
+        "workout": 5,
+        "exercise": 27,
+        "set_count": 4,
+        "rep_count": 9,
+        "weight": 67.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 21,
+    "fields": {
+        "workout": 5,
+        "exercise": 41,
+        "set_count": 4,
+        "rep_count": 12,
+        "weight": 74.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 22,
+    "fields": {
+        "workout": 5,
+        "exercise": 6,
+        "set_count": 3,
+        "rep_count": 8,
+        "weight": 10.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 23,
+    "fields": {
+        "workout": 6,
+        "exercise": 5,
+        "set_count": 3,
+        "rep_count": 10,
+        "weight": 18.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 24,
+    "fields": {
+        "workout": 6,
+        "exercise": 20,
+        "set_count": 4,
+        "rep_count": 15,
+        "weight": 52.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 25,
+    "fields": {
+        "workout": 6,
+        "exercise": 38,
+        "set_count": 3,
+        "rep_count": 8,
+        "weight": 22.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 26,
+    "fields": {
+        "workout": 6,
+        "exercise": 28,
+        "set_count": 3,
+        "rep_count": 13,
+        "weight": 16.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 27,
+    "fields": {
+        "workout": 6,
+        "exercise": 17,
+        "set_count": 4,
+        "rep_count": 12,
+        "weight": 26.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 28,
+    "fields": {
+        "workout": 7,
+        "exercise": 37,
+        "set_count": 4,
+        "rep_count": 5,
+        "weight": 43.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 29,
+    "fields": {
+        "workout": 7,
+        "exercise": 23,
+        "set_count": 4,
+        "rep_count": 15,
+        "weight": 54.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 30,
+    "fields": {
+        "workout": 7,
+        "exercise": 17,
+        "set_count": 3,
+        "rep_count": 5,
+        "weight": 82.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 31,
+    "fields": {
+        "workout": 7,
+        "exercise": 27,
+        "set_count": 5,
+        "rep_count": 6,
+        "weight": 79.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 32,
+    "fields": {
+        "workout": 7,
+        "exercise": 13,
+        "set_count": 3,
+        "rep_count": 14,
+        "weight": 64.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 33,
+    "fields": {
+        "workout": 8,
+        "exercise": 10,
+        "set_count": 3,
+        "rep_count": 12,
+        "weight": 17.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 34,
+    "fields": {
+        "workout": 8,
+        "exercise": 15,
+        "set_count": 5,
+        "rep_count": 13,
+        "weight": 99.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 35,
+    "fields": {
+        "workout": 8,
+        "exercise": 37,
+        "set_count": 4,
+        "rep_count": 15,
+        "weight": 15.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 36,
+    "fields": {
+        "workout": 8,
+        "exercise": 25,
+        "set_count": 3,
+        "rep_count": 6,
+        "weight": 81.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 37,
+    "fields": {
+        "workout": 8,
+        "exercise": 16,
+        "set_count": 3,
+        "rep_count": 6,
+        "weight": 30.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 38,
+    "fields": {
+        "workout": 9,
+        "exercise": 12,
+        "set_count": 4,
+        "rep_count": 6,
+        "weight": 20.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 39,
+    "fields": {
+        "workout": 9,
+        "exercise": 6,
+        "set_count": 4,
+        "rep_count": 5,
+        "weight": 66.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 40,
+    "fields": {
+        "workout": 9,
+        "exercise": 11,
+        "set_count": 5,
+        "rep_count": 8,
+        "weight": 90.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 41,
+    "fields": {
+        "workout": 10,
+        "exercise": 21,
+        "set_count": 3,
+        "rep_count": 13,
+        "weight": 78.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 42,
+    "fields": {
+        "workout": 10,
+        "exercise": 33,
+        "set_count": 5,
+        "rep_count": 6,
+        "weight": 67.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 43,
+    "fields": {
+        "workout": 10,
+        "exercise": 31,
+        "set_count": 3,
+        "rep_count": 13,
+        "weight": 91.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 44,
+    "fields": {
+        "workout": 10,
+        "exercise": 14,
+        "set_count": 5,
+        "rep_count": 8,
+        "weight": 31.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 45,
+    "fields": {
+        "workout": 11,
+        "exercise": 31,
+        "set_count": 4,
+        "rep_count": 15,
+        "weight": 66.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 46,
+    "fields": {
+        "workout": 11,
+        "exercise": 41,
+        "set_count": 3,
+        "rep_count": 6,
+        "weight": 89.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 47,
+    "fields": {
+        "workout": 11,
+        "exercise": 15,
+        "set_count": 4,
+        "rep_count": 6,
+        "weight": 62.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 48,
+    "fields": {
+        "workout": 12,
+        "exercise": 14,
+        "set_count": 3,
+        "rep_count": 8,
+        "weight": 50.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 49,
+    "fields": {
+        "workout": 12,
+        "exercise": 16,
+        "set_count": 5,
+        "rep_count": 5,
+        "weight": 78.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 50,
+    "fields": {
+        "workout": 12,
+        "exercise": 7,
+        "set_count": 4,
+        "rep_count": 13,
+        "weight": 12.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 51,
+    "fields": {
+        "workout": 12,
+        "exercise": 33,
+        "set_count": 4,
+        "rep_count": 6,
+        "weight": 14.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 52,
+    "fields": {
+        "workout": 12,
+        "exercise": 11,
+        "set_count": 4,
+        "rep_count": 5,
+        "weight": 34.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 53,
+    "fields": {
+        "workout": 13,
+        "exercise": 23,
+        "set_count": 3,
+        "rep_count": 13,
+        "weight": 53.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 54,
+    "fields": {
+        "workout": 13,
+        "exercise": 24,
+        "set_count": 4,
+        "rep_count": 5,
+        "weight": 91.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 55,
+    "fields": {
+        "workout": 13,
+        "exercise": 9,
+        "set_count": 4,
+        "rep_count": 9,
+        "weight": 95.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 56,
+    "fields": {
+        "workout": 14,
+        "exercise": 36,
+        "set_count": 5,
+        "rep_count": 10,
+        "weight": 49.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 57,
+    "fields": {
+        "workout": 14,
+        "exercise": 14,
+        "set_count": 3,
+        "rep_count": 15,
+        "weight": 63.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 58,
+    "fields": {
+        "workout": 14,
+        "exercise": 39,
+        "set_count": 5,
+        "rep_count": 5,
+        "weight": 24.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 59,
+    "fields": {
+        "workout": 14,
+        "exercise": 21,
+        "set_count": 5,
+        "rep_count": 9,
+        "weight": 11.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 60,
+    "fields": {
+        "workout": 15,
+        "exercise": 37,
+        "set_count": 4,
+        "rep_count": 5,
+        "weight": 52.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 61,
+    "fields": {
+        "workout": 15,
+        "exercise": 13,
+        "set_count": 5,
+        "rep_count": 14,
+        "weight": 55.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 62,
+    "fields": {
+        "workout": 15,
+        "exercise": 38,
+        "set_count": 3,
+        "rep_count": 11,
+        "weight": 71.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 63,
+    "fields": {
+        "workout": 15,
+        "exercise": 11,
+        "set_count": 5,
+        "rep_count": 6,
+        "weight": 80.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 64,
+    "fields": {
+        "workout": 15,
+        "exercise": 16,
+        "set_count": 5,
+        "rep_count": 5,
+        "weight": 89.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 65,
+    "fields": {
+        "workout": 16,
+        "exercise": 32,
+        "set_count": 3,
+        "rep_count": 6,
+        "weight": 13.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 66,
+    "fields": {
+        "workout": 16,
+        "exercise": 5,
+        "set_count": 3,
+        "rep_count": 12,
+        "weight": 62.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 67,
+    "fields": {
+        "workout": 16,
+        "exercise": 27,
+        "set_count": 3,
+        "rep_count": 5,
+        "weight": 77.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 68,
+    "fields": {
+        "workout": 17,
+        "exercise": 20,
+        "set_count": 5,
+        "rep_count": 12,
+        "weight": 57.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 69,
+    "fields": {
+        "workout": 17,
+        "exercise": 19,
+        "set_count": 4,
+        "rep_count": 11,
+        "weight": 33.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 70,
+    "fields": {
+        "workout": 17,
+        "exercise": 30,
+        "set_count": 5,
+        "rep_count": 8,
+        "weight": 19.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 71,
+    "fields": {
+        "workout": 17,
+        "exercise": 2,
+        "set_count": 4,
+        "rep_count": 8,
+        "weight": 33.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 72,
+    "fields": {
+        "workout": 18,
+        "exercise": 36,
+        "set_count": 4,
+        "rep_count": 14,
+        "weight": 63.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 73,
+    "fields": {
+        "workout": 18,
+        "exercise": 28,
+        "set_count": 3,
+        "rep_count": 5,
+        "weight": 54.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 74,
+    "fields": {
+        "workout": 18,
+        "exercise": 15,
+        "set_count": 4,
+        "rep_count": 14,
+        "weight": 90.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 75,
+    "fields": {
+        "workout": 18,
+        "exercise": 24,
+        "set_count": 3,
+        "rep_count": 12,
+        "weight": 83.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 76,
+    "fields": {
+        "workout": 19,
+        "exercise": 14,
+        "set_count": 4,
+        "rep_count": 6,
+        "weight": 14.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 77,
+    "fields": {
+        "workout": 19,
+        "exercise": 6,
+        "set_count": 5,
+        "rep_count": 9,
+        "weight": 27.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 78,
+    "fields": {
+        "workout": 19,
+        "exercise": 10,
+        "set_count": 3,
+        "rep_count": 12,
+        "weight": 73.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 79,
+    "fields": {
+        "workout": 19,
+        "exercise": 38,
+        "set_count": 4,
+        "rep_count": 8,
+        "weight": 86.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 80,
+    "fields": {
+        "workout": 20,
+        "exercise": 29,
+        "set_count": 5,
+        "rep_count": 14,
+        "weight": 16.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 81,
+    "fields": {
+        "workout": 20,
+        "exercise": 21,
+        "set_count": 3,
+        "rep_count": 11,
+        "weight": 73.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 82,
+    "fields": {
+        "workout": 20,
+        "exercise": 5,
+        "set_count": 5,
+        "rep_count": 13,
+        "weight": 89.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 83,
+    "fields": {
+        "workout": 20,
+        "exercise": 39,
+        "set_count": 4,
+        "rep_count": 8,
+        "weight": 97.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 84,
+    "fields": {
+        "workout": 20,
+        "exercise": 28,
+        "set_count": 3,
+        "rep_count": 12,
+        "weight": 21.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 85,
+    "fields": {
+        "workout": 21,
+        "exercise": 21,
+        "set_count": 5,
+        "rep_count": 11,
+        "weight": 83.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 86,
+    "fields": {
+        "workout": 21,
+        "exercise": 25,
+        "set_count": 4,
+        "rep_count": 8,
+        "weight": 54.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 87,
+    "fields": {
+        "workout": 21,
+        "exercise": 7,
+        "set_count": 5,
+        "rep_count": 14,
+        "weight": 79.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 88,
+    "fields": {
+        "workout": 22,
+        "exercise": 11,
+        "set_count": 4,
+        "rep_count": 6,
+        "weight": 74.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 89,
+    "fields": {
+        "workout": 22,
+        "exercise": 13,
+        "set_count": 5,
+        "rep_count": 8,
+        "weight": 27.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 90,
+    "fields": {
+        "workout": 22,
+        "exercise": 35,
+        "set_count": 4,
+        "rep_count": 5,
+        "weight": 94.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 91,
+    "fields": {
+        "workout": 23,
+        "exercise": 40,
+        "set_count": 4,
+        "rep_count": 14,
+        "weight": 65.5
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 92,
+    "fields": {
+        "workout": 23,
+        "exercise": 19,
+        "set_count": 4,
+        "rep_count": 6,
+        "weight": 78.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 93,
+    "fields": {
+        "workout": 23,
+        "exercise": 21,
+        "set_count": 3,
+        "rep_count": 15,
+        "weight": 55.75
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 94,
+    "fields": {
+        "workout": 23,
+        "exercise": 20,
+        "set_count": 5,
+        "rep_count": 8,
+        "weight": 22.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 95,
+    "fields": {
+        "workout": 24,
+        "exercise": 36,
+        "set_count": 5,
+        "rep_count": 15,
+        "weight": 86.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 96,
+    "fields": {
+        "workout": 24,
+        "exercise": 33,
+        "set_count": 5,
+        "rep_count": 6,
+        "weight": 73.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 97,
+    "fields": {
+        "workout": 24,
+        "exercise": 22,
+        "set_count": 4,
+        "rep_count": 13,
+        "weight": 59.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 98,
+    "fields": {
+        "workout": 25,
+        "exercise": 41,
+        "set_count": 5,
+        "rep_count": 15,
+        "weight": 56.25
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 99,
+    "fields": {
+        "workout": 25,
+        "exercise": 7,
+        "set_count": 4,
+        "rep_count": 5,
+        "weight": 21.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 100,
+    "fields": {
+        "workout": 25,
+        "exercise": 40,
+        "set_count": 4,
+        "rep_count": 12,
+        "weight": 27.0
+    }
+},
+{
+    "model": "workouts.workoutitem",
+    "pk": 101,
+    "fields": {
+        "workout": 22,
+        "exercise": 16,
+        "set_count": 6,
+        "rep_count": 7,
+        "weight": 69.0
+    }
+}
+]
