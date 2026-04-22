@@ -1,9 +1,19 @@
 from django.urls import path
 
-from workouts.models import Category
-from workouts.views import index, WorkoutListView, WorkoutDetailView, ExerciseListView, ExerciseDetailView, \
-    CategoryListView, WorkoutCreateView, WorkoutUpdateView, WorkoutDeleteView, \
-    WorkoutItemCreateView, WorkoutItemUpdateView, WorkoutItemDeleteView
+from workouts.views import (
+    index,
+    WorkoutListView,
+    WorkoutDetailView,
+    ExerciseListView,
+    ExerciseDetailView,
+    CategoryListView,
+    WorkoutCreateView,
+    WorkoutUpdateView,
+    WorkoutDeleteView,
+    WorkoutItemCreateView,
+    WorkoutItemUpdateView,
+    WorkoutItemDeleteView,
+)
 
 urlpatterns = [
     path("", index, name="index"),

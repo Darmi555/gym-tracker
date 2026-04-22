@@ -135,10 +135,6 @@ class WorkoutItemDeleteView(LoginRequiredMixin, generic.DeleteView):
         return WorkoutItem.objects.filter(workout__user=self.request.user)
 
 
-from django.db.models import Q
-from workouts.models import Exercise, Category  # Pamiętaj o imporcie Category!
-
-
 class ExerciseListView(LoginRequiredMixin, generic.ListView):
     model = Exercise
     paginate_by = 12
