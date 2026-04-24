@@ -1,0 +1,86 @@
+{% extends 'layouts/base-presentation.html' %}
+{% block content %}
+
+<div class="container mt-8">
+
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-header pb-3 bg-white d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Exercise Library</h5>
+
+          <form method="get" action="" class="d-flex align-items-center">
+
+            <select name="category" class="form-select px-3 py-2 me-2 text-sm" style="border: 1px solid #d2d6da; border-radius: 0.5rem; outline: none; cursor: pointer;">
+              <option value="">All Categories</option>
+              {% for cat in categories %}
+                <option value="{{ cat.id }}" {% if selected_category == cat.id %}selected{% endif %}>
+                  {{ cat.name }}
+                </option>
+              {% endfor %}
+            </select>
+
+            <input type="text" class="form-control" name="q" value="{{ request.GET.q|default_if_none:'' }}" placeholder="Search exercise...">
+            <button class="btn btn-secondary mb-0 ms-2" type="submit">&#128269;</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    {% for exercise in object_list %}
+    <div class="col-lg-4 mb-4">
+      <div class="card bg-gray-100 border-radius-xl p-4 h-100 shadow-none border">
+        <div class="description">
+          <h5 class="text-dark font-weight-bold">{{ exercise.name }}</h5>
+
+          <div class="mb-2">
+            {% for cat in exercise.categories.all %}
+              <span class="badge bg-light text-secondary border badge-sm fw-normal">{{ cat.name }}</span>
+            {% endfor %}
+          </div>
+
+          <p class="text-sm text-muted mt-2">{{ exercise.description|truncatewords:10 }}</p>
+          <a href="{% url 'workouts:exercise-detail' pk=exercise.id %}" class="btn btn-sm bg-gradient-primary w-auto me-1 mb-0 mt-3">
+            Details
+          </a>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+      <div class="col-12 text-center mt-5">
+        <h4 class="text-muted">No exercises found matching your criteria.</h4>
+        <a href="{% url 'workouts:exercise-list' %}" class="btn btn-outline-secondary mt-3">Clear filters</a>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if is_paginated %}
+  <div class="row mt-2 mb-2">
+    <div class="col-12 d-flex justify-content-center">
+      <ul class="pagination pagination-primary pagination-lg mt-2" >
+        {% for num in custom_page_range %}
+          {% if num == page_obj.paginator.ELLIPSIS %}
+            <li class="page-item disabled">
+              <span class="page-link">...</span>
+            </li>
+          {% elif num == page_obj.number %}
+            <li class="page-item active">
+              <span class="page-link">{{ num }}</span>
+            </li>
+          {% else %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ num }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">{{ num }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+<div class="container position-sticky z-index-sticky top-0">
+  <div class="row">
+    <div class="col-12">
+      <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+        <div class="container-fluid">
+          <a class="navbar-brand font-weight-bolder ms-sm-3" href="/">
+            Gym Tracker
+          </a>
+          <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon mt-2">
+              <span class="navbar-toggler-bar bar1"></span>
+              <span class="navbar-toggler-bar bar2"></span>
+              <span class="navbar-toggler-bar bar3"></span>
+            </span>
+          </button>
+          <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0" id="navigation">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item mx-2">
+                <a class="nav-link ps-2 font-weight-bold cursor-pointer align-items-center" href="{% url 'workouts:workout-list' %}">
+                  My Workouts
+                </a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link ps-2 font-weight-bold cursor-pointer align-items-center" href="{% url 'workouts:exercise-list' %}">
+                  Exercises
+                </a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link ps-2 font-weight-bold cursor-pointer align-items-center" href="{% url 'workouts:category-list' %}">
+                  Categories
+                </a>
+              </li>
+            </ul>
+            <ul class="navbar-nav align-items-center">
+              <li class="nav-item my-auto ms-3 ms-lg-0">
+                <a href="{% url 'workouts:workout-create' %}" class="btn btn-sm bg-gradient-primary btn-round mb-0 me-3 mt-2 mt-md-0">
+                  + New Workout
+                </a>
+              </li>
+              <li class="nav-item d-flex align-items-center ms-3 ms-lg-0 mt-2 mt-md-0 me-4">
+                <span class="text-sm font-weight-bold text-dark">
+                  Hello, {{ user.username }}!
+                </span>
+              </li>
+              <li class="nav-item ms-3 ms-lg-0 mt-2 mt-md-0">
+                <form action="{% url 'logout' %}" method="post" class="m-0 p-0 d-inline">
+                  {% csrf_token %}
+                  <button type="submit" class="nav-link nav-link-icon p-0 border-0 bg-transparent text-start w-100">
+                    <i class="fa fa-sign-out me-1"></i>
+                    <span class="d-inline text-sm font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout">Logout</span>
+                  </button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
