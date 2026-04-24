@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views import generic
 
@@ -14,7 +14,6 @@ from workouts.models import Workout, Exercise, Category, WorkoutItem
 def index(request):
     num_gym_users = get_user_model().objects.count()
     num_workouts = Workout.objects.count()
-    num_categories = Category.objects.count()
     num_exercises = Exercise.objects.count()
 
     num_visits = request.session.get("num_visits", 0)
@@ -23,7 +22,6 @@ def index(request):
     context = {
         "num_gym_users": num_gym_users,
         "num_workouts": num_workouts,
-        "num_categories": num_categories,
         "num_exercises": num_exercises,
         "num_visits": num_visits + 1,
     }
@@ -104,9 +102,16 @@ class WorkoutItemCreateView(LoginRequiredMixin, generic.CreateView):
 
     def form_valid(self, form):
         workout_id = self.kwargs.get("workout_pk")
-        workout = Workout.objects.get(pk=workout_id)
+        workout = get_object_or_404(Workout, pk=workout_id, user=self.request.user)
         form.instance.workout = workout
         return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        workout_id = self.kwargs.get("workout_pk")
+        workout = get_object_or_404(Workout, pk=workout_id, user=self.request.user)
+        context["workout"] = workout
+        return context
 
     def get_success_url(self):
         return reverse("workouts:workout-detail", kwargs={"pk": self.object.workout_id})
@@ -151,20 +156,20 @@ class ExerciseListView(LoginRequiredMixin, generic.ListView):
 
         if category_id:
             qs = qs.filter(categories__id=category_id)
-        return qs.order_by('name').distinct()
+        return qs.order_by("name").distinct()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        page = context.get('page_obj')
+        page = context.get("page_obj")
 
         if page:
-            context['custom_page_range'] = page.paginator.get_elided_page_range(
+            context["custom_page_range"] = page.paginator.get_elided_page_range(
                 page.number, on_each_side=1, on_ends=1
             )
 
-        context['categories'] = Category.objects.all().order_by('name')
-        selected_category = self.request.GET.get('category')
-        context['selected_category'] = int(
+        context["categories"] = Category.objects.all().order_by("name")
+        selected_category = self.request.GET.get("category")
+        context["selected_category"] = int(
             selected_category) if selected_category and selected_category.isdigit() else None
         return context
 
@@ -177,8 +182,8 @@ class ExerciseDetailView(LoginRequiredMixin, generic.DetailView):
         history = WorkoutItem.objects.filter(
             exercise=self.object,
             workout__user=self.request.user
-        ).select_related('workout').order_by('-workout__date')
-        context['history'] = history[:15]
+        ).select_related("workout").order_by("-workout__date")
+        context["history"] = history[:15]
         return context
 
 

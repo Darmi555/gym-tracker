@@ -56,3 +56,6 @@ class WorkoutItem(models.Model):
     set_count = models.PositiveIntegerField()
     rep_count = models.PositiveIntegerField()
     weight = models.FloatField()
+
+    def __str__(self):
+        return f"{self.exercise.name} ({self.set_count}x{self.rep_count}) - {self.workout.title}"
